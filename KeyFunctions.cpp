@@ -39,8 +39,8 @@ string readKey(string s){
     return ss.str();
 }
 
-void printKey(string s){
-    for(int x = 0; x < 24; ++x){
+void printKey(string s, int i){
+    for(int x = 0; x < i; ++x){
         char c = s[x];
         if (!isprint(static_cast<unsigned char>(c))){
             cout << "-";

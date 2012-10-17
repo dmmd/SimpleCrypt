@@ -23,7 +23,7 @@ void writeKey(string, int);
 string getKey(int);
 bool fexists(const char *filename);
 string readKey(string);
-void printKey(string sIn);
+void printKey(string sIn, int i);
 
 
 #endif	/* SIMPLECRYPT_H */
