@@ -1,19 +1,38 @@
-/* 
- * File:   main.cpp
- * Author: Donald
- *
- * Created on October 17, 2012, 4:30 PM
- */
+#include "SimpleCrypt.h"
 
-#include <cstdlib>
-
-using namespace std;
-
-/*
- * 
- */
-int main(int argc, char** argv) {
-
-    return 0;
+int main() {
+    string keyHandle = "keys/DESkey.key";
+    if(!fexists(keyHandle.c_str())){
+        cout << "generating des key: DESkey.key";
+        writeKey(keyHandle, 24);
+    }
+    
+    string cipher = readKey(keyHandle);
+    printKey(cipher);
+    return EXIT_SUCCESS;
 }
 
+
+
+bool fexists(const char *filename)
+{
+  ifstream ifile(filename);
+  return ifile;
+}
+
+
+
+void printKey(string sIn){
+    char *a=new char[sIn.size()+1];
+    int size = sIn.size();
+    a[size]=0;
+    memcpy(a,sIn.c_str(), size);
+    
+    for(int x = 0; x < size; ++x){
+        if (isprint(static_cast<unsigned char>(a[x]))) {
+            cout << a;
+	} else {
+            cout << "-";
+        }
+    }
+}
