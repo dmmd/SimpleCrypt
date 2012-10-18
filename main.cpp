@@ -9,14 +9,17 @@ int main() {
     }
     
     string cipher = readKey(keyhandle);
-    printKey(cipher, keylength);
+    //printKey(cipher, keylength);
 
 	cout << "enter text to encrypt" << endl;
 
 	string plaintext;
 	getline(cin, plaintext);
 	
-	encryptString(cipher, plaintext);
+	cout << "ciphertext: " << endl;
+	string ciphertext = encryptString(cipher, plaintext);
+	
+	printKey(ciphertext, ciphertext.length());
     return EXIT_SUCCESS;
 }
 
