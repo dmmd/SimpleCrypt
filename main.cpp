@@ -16,6 +16,7 @@ int main() {
 	string plaintext;
 	getline(cin, plaintext);
 	
+	encryptString(cipher, plaintext);
     return EXIT_SUCCESS;
 }
 

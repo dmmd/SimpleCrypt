@@ -16,6 +16,7 @@
 #include <climits>
 #include <fstream>
 
+
 using namespace std;
 
 
@@ -23,8 +24,8 @@ void writeKey(string, int);
 string getKey(int);
 bool fexists(const char *filename);
 string readKey(string);
-void printKey(string sIn, int i);
-
+void printKey(string, int);
+void encryptString(string, string);
 
 #endif	/* SIMPLECRYPT_H */
 
