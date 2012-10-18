@@ -1,10 +1,3 @@
-/* 
- * File:   SimpleCrypt.h
- * Author: dm
- *
- * Created on October 17, 2012, 2:36 PM
- */
-
 #ifndef SIMPLECRYPT_H
 #define	SIMPLECRYPT_H
 
@@ -16,9 +9,7 @@
 #include <climits>
 #include <fstream>
 
-
 using namespace std;
-
 
 void writeKey(string, int);
 string getKey(int);

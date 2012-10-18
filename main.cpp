@@ -16,10 +16,16 @@ int main() {
 	string plaintext;
 	getline(cin, plaintext);
 	
-	cout << "ciphertext: " << endl;
+	cout << endl << "ciphertext: " << endl;
 	string ciphertext = encryptString(cipher, plaintext);
 	
 	printKey(ciphertext, ciphertext.length());
+	
+	cout << endl << "restored plaintext: " << endl;
+	string restoredtext = encryptString(cipher, ciphertext);
+	
+	cout << restoredtext << endl;
+	
     return EXIT_SUCCESS;
 }
 
