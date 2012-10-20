@@ -5,6 +5,16 @@ void writekey(string filename, int keylength){
 	keyfile << getkey(keylength);
 }
 
+void checkkey(){
+	int keylength = 8;
+    string keyhandle = ".secretkey";
+   
+	if(!fexists(keyhandle.c_str())){
+        cout << "generating des key: DESkey.key";
+        writekey(keyhandle, keylength);
+    }	
+}
+
 string getkey(int keylength){
 
     stringstream ss;

@@ -1,17 +1,17 @@
 #include "SimpleCrypt.h"
 
-int main() {
+int main(int argc, char* argv[]) {
 	srand((unsigned int) time(NULL));
-	int keylength = 8;
-    string keyhandle = "keys/DESkey.key";
-    if(!fexists(keyhandle.c_str())){
-        cout << "generating des key: DESkey.key";
-        writekey(keyhandle, keylength);
-    }
-    
-    string cipher = readkey(keyhandle);
-    //printKey(cipher, keylength);
+	checkkey();
+	
+	int chances = 5;
+	string input;
+		
+	inputencrypt(readkey(".secretkey"));
+    return EXIT_SUCCESS;
+}
 
+void inputencrypt(string cipher){
 	cout << "enter text to encrypt" << endl;
 
 	string plaintext;
@@ -26,10 +26,9 @@ int main() {
 	string restoredtext = encryptString(cipher, ciphertext);
 	
 	cout << restoredtext << endl;
-	
-    return EXIT_SUCCESS;
 }
 
+void fileencrypt(string cipher){}
 
 
 
