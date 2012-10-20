@@ -11,13 +11,15 @@
 
 using namespace std;
 
-void writeKey(string, int);
-string getKey(int);
+void writekey(string, int);
+string getkey(int);
 bool fexists(const char *filename);
-string readKey(string);
-void printKey(string, int);
+string readkey(string);
+void printkey(string, int);
 string encryptString(string, string);
 char printChar(char);
 char xorChars(char, char);
+
+inline bool fexists(const char *filename){return ifstream(filename);}
 #endif	/* SIMPLECRYPT_H */
 

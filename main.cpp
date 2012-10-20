@@ -1,14 +1,15 @@
 #include "SimpleCrypt.h"
 
 int main() {
+	srand((unsigned int) time(NULL));
 	int keylength = 8;
     string keyhandle = "keys/DESkey.key";
     if(!fexists(keyhandle.c_str())){
         cout << "generating des key: DESkey.key";
-        writeKey(keyhandle, keylength);
+        writekey(keyhandle, keylength);
     }
     
-    string cipher = readKey(keyhandle);
+    string cipher = readkey(keyhandle);
     //printKey(cipher, keylength);
 
 	cout << "enter text to encrypt" << endl;
@@ -19,7 +20,7 @@ int main() {
 	cout << endl << "ciphertext: " << endl;
 	string ciphertext = encryptString(cipher, plaintext);
 	
-	printKey(ciphertext, ciphertext.length());
+	printkey(ciphertext, ciphertext.length());
 	
 	cout << endl << "restored plaintext: " << endl;
 	string restoredtext = encryptString(cipher, ciphertext);
