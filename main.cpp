@@ -2,12 +2,47 @@
 
 int main(int argc, char* argv[]) {
 	srand((unsigned int) time(NULL));
-	checkkey();
+
 	
-	int chances = 5;
-	string input;
-		
-	inputencrypt(readkey(".secretkey"));
+	
+	
+	if (argc < 2) {
+        show_usage(argv[0]);
+        return EXIT_FAILURE;
+	}
+
+	string inputhandle, outputhandle;
+	for (int i = 1; i < argc; ++i) {
+		string arg = argv[i];
+        if ((arg == "-h") || (arg == "--help")) {
+        	show_usage(argv[0]);
+            return EXIT_SUCCESS;
+        } else if ((arg == "-f") || (arg == "--input")) {
+ 			if (i + 1 < argc) {
+            	inputhandle = argv[++i]; 
+           	} else { 
+  				cerr << "--input file option requires one argument." << std::endl;
+           		return EXIT_FAILURE;
+            } 
+		} else if ((arg == "-o") || (arg == "--output")) {
+ 			if (i + 1 < argc) {
+            	outputhandle = argv[++i]; 
+           	} else { 
+  				cerr << "--output file option requires one argument." << std::endl;
+           		return EXIT_FAILURE;
+            }
+		} else if ((arg == "-i")) {
+			checkkey();
+			inputencrypt(readkey(".secretkey"));
+			return EXIT_SUCCESS;
+	    }
+	}
+	cout << "inputhandle: " << inputhandle << endl
+		<< "outputhandle: " << outputhandle << endl;
+	
+	checkkey();
+	filecrypt(readkey(".secretkey"),inputhandle, outputhandle);
+
     return EXIT_SUCCESS;
 }
 
@@ -28,7 +63,6 @@ void inputencrypt(string cipher){
 	cout << restoredtext << endl;
 }
 
-void fileencrypt(string cipher){}
 
 
 

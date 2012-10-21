@@ -12,7 +12,8 @@ void checkkey(){
 	if(!fexists(keyhandle.c_str())){
         cout << "generating des key: DESkey.key";
         writekey(keyhandle, keylength);
-    }	
+    }
+		cout << "Cipher key found." << endl;
 }
 
 string getkey(int keylength){
@@ -37,6 +38,7 @@ string readkey(string s){
 	while (getline(keyfile,line)){
 	  ss << line;
 	}
+
     return ss.str();
 }
 
