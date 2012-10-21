@@ -1,11 +1,9 @@
 #include "SimpleCrypt.h"
 
 int main(int argc, char* argv[]) {
+	using namespace std;
 	srand((unsigned int) time(NULL));
 
-	
-	
-	
 	if (argc < 2) {
         show_usage(argv[0]);
         return EXIT_FAILURE;

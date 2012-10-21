@@ -10,8 +10,6 @@
 #include <fstream>
 
 
-using namespace std;
-
 void writekey(string, int);
 string getkey(int);
 bool fexists(const char);
@@ -33,8 +31,7 @@ inline void show_usage(string name) {
     << "\t-h,--help\t\tShow this help message\n"
 	<< "\t-i,--input mode\t\tEncrypt text form stdin\n"
   	<< "\t-f,--input file\t\tSpecify the input file path\n"
-	<< "\t-o,--output file\tSpecify the output file path"
-	<< std::endl;
+	<< "\t-o,--output file\tSpecify the output file path" << endl;
 }
 
 #endif	/* SIMPLECRYPT_H */
