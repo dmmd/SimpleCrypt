@@ -9,6 +9,7 @@
 #include <climits>
 #include <fstream>
 
+using namespace std;
 
 void writekey(string, int);
 string getkey(int);

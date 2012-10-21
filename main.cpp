@@ -26,21 +26,28 @@ int main(int argc, char* argv[]) {
  			if (i + 1 < argc) {
             	outputhandle = argv[++i]; 
            	} else { 
-  				cerr << "--output file option requires one argument." << std::endl;
+  				cerr << "--output file option requires one argument." << endl;
            		return EXIT_FAILURE;
             }
 		} else if ((arg == "-i")) {
 			checkkey();
 			inputencrypt(readkey(".secretkey"));
 			return EXIT_SUCCESS;
-	    }
+	    } else {
+			cerr << "unknown argument." << endl;
+			show_usage(argv[0]);
+       		return EXIT_FAILURE;
+		}
 	}
-	cout << "inputhandle: " << inputhandle << endl
-		<< "outputhandle: " << outputhandle << endl;
 	
-	checkkey();
-	filecrypt(readkey(".secretkey"),inputhandle, outputhandle);
-
+	if(inputhandle.length() == 0 || outputhandle.length() == 0){
+		cerr << "input or output file missing" << endl;
+		show_usage(argv[0]);
+        return EXIT_FAILURE;
+	} else{
+		checkkey();
+		filecrypt(readkey(".secretkey"),inputhandle, outputhandle);
+	}
     return EXIT_SUCCESS;
 }
 

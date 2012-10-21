@@ -10,14 +10,12 @@ void checkkey(){
     string keyhandle = ".secretkey";
    
 	if(!fexists(keyhandle.c_str())){
-        cout << "generating des key: DESkey.key";
+        cout << "generating 64 bit key: '.secretkey'.";
         writekey(keyhandle, keylength);
     }
-		cout << "Cipher key found." << endl;
 }
 
 string getkey(int keylength){
-
     stringstream ss;
     for(int i = 0; i < keylength; ++i){
         ss << static_cast<unsigned char>((rand() % UCHAR_MAX));
