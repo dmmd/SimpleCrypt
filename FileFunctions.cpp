@@ -15,9 +15,7 @@ void filecrypt(string cipher, string filehandle, string outfilehandle){
 	
 	for(int i = 0; i < size; i += 8){
 		for(int j = 0; j < 8; ++j){
-			if(j == size){
-				break;
-			}
+			if(j > size){break;}
 			outfile << static_cast<unsigned char>((cipher[j] ^ memblock[i + j]));
 		}
   	}
