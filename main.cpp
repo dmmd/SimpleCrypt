@@ -33,7 +33,10 @@ int main(int argc, char* argv[]) {
 			checkkey();
 			inputencrypt(readkey(".secretkey"));
 			return EXIT_SUCCESS;
-	    } else {
+	    } else if ((arg == "-v")) {
+			cout << "simplecrypt v0.1 (2012-10-21)" << endl;
+				return EXIT_SUCCESS;
+		 } else {
 			cerr << "unknown argument." << endl;
 			show_usage(argv[0]);
        		return EXIT_FAILURE;
