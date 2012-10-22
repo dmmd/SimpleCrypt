@@ -44,7 +44,7 @@ void printkey(string s, int i){
     for(int x = 0; x < i; ++x){
         char c = s[x];
         if (!isprint(static_cast<unsigned char>(c))){
-            cout << "-";
+            cout << ".";
         } else {
         cout << c;
         }

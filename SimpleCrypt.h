@@ -29,10 +29,11 @@ inline bool fexists(const char *filename){return ifstream(filename);}
 inline void show_usage(string name) {
 	cerr << "Usage: " << name << " "
     << "Options:\n"
-    << "\t-h,--help\t\tShow this help message\n"
-	<< "\t-i,--input mode\t\tEncrypt text form stdin\n"
-  	<< "\t-f,--input file\t\tSpecify the input file path\n"
-	<< "\t-o,--output file\tSpecify the output file path" << endl;
+    << "\t-h\t\tShow this help message\n"
+	<< "\t-v\t\tPrint the version of the program\n"
+	<< "\t-t\t\tEncrypt text from stdin (test key)\n"
+  	<< "\t-f\t\tSpecify the input file path\n"
+	<< "\t-o\tSpecify the output file path" << endl;
 }
 
 #endif	/* SIMPLECRYPT_H */

@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
   				cerr << "--output file option requires one argument." << endl;
            		return EXIT_FAILURE;
             }
-		} else if ((arg == "-i")) {
+		} else if ((arg == "-t")) {
 			checkkey();
 			inputencrypt(readkey(".secretkey"));
 			return EXIT_SUCCESS;
