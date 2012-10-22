@@ -19,14 +19,14 @@ int main(int argc, char* argv[]) {
  			if (i + 1 < argc) {
             	inputhandle = argv[++i]; 
            	} else { 
-  				cerr << "--input file option requires one argument." << std::endl;
+  				cerr << "--input file option requires one argument.";
            		return EXIT_FAILURE;
             } 
 		} else if ((arg == "-o") || (arg == "--output")) {
  			if (i + 1 < argc) {
             	outputhandle = argv[++i]; 
            	} else { 
-  				cerr << "--output file option requires one argument." << endl;
+  				cerr << "--output file option requires one argument.";
            		return EXIT_FAILURE;
             }
 		} else if ((arg == "-t")) {
@@ -34,10 +34,10 @@ int main(int argc, char* argv[]) {
 			inputencrypt(readkey(".secretkey"));
 			return EXIT_SUCCESS;
 	    } else if ((arg == "-v")) {
-			cout << "simplecrypt v0.1 (2012-10-21)" << endl;
+			cout << "simplecrypt v0.0.2 (2012-10-22)" << endl;
 				return EXIT_SUCCESS;
 		 } else {
-			cerr << "unknown argument." << endl;
+			cerr << "unknown argument.";
 			show_usage(argv[0]);
        		return EXIT_FAILURE;
 		}
@@ -69,6 +69,16 @@ void inputencrypt(string cipher){
 	string restoredtext = encryptString(cipher, ciphertext);
 	
 	cout << restoredtext << endl;
+}
+
+static void show_usage(string name) {
+	cerr << "Usage: " << name << " "
+	    << "Options:\n"
+	    << "\t-h\t\tShow this help message\n"
+		<< "\t-v\t\tPrint the version of the program\n"
+		<< "\t-t\t\tEncrypt text from stdin (test key)\n"
+	  	<< "\t-f\t\tSpecify the input file path\n"
+		<< "\t-o\t\tSpecify the output file path" << endl;
 }
 
 

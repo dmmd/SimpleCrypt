@@ -11,14 +11,13 @@ void filecrypt(string cipher, string filehandle, string outfilehandle){
 	memblock = new char [size];
 	file.seekg (0, ios::beg);
 	file.read (memblock, size);
-	file.close();
 	
+	//There must be a better way to read a file 8 bytes at a time
 	for(int i = 0; i < size; i += 8){
 		for(int j = 0; j < 8; ++j){
 			if(j > size){break;}
 			outfile << static_cast<unsigned char>((cipher[j] ^ memblock[i + j]));
 		}
   	}
-	
-	outfile.close();
+
 }

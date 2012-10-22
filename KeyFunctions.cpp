@@ -10,7 +10,7 @@ void checkkey(){
     string keyhandle = ".secretkey";
    
 	if(!fexists(keyhandle.c_str())){
-        cout << "generating 64 bit key: '.secretkey'.";
+        cout << "generating 64 bit key: '.secretkey'." << endl;
         writekey(keyhandle, keylength);
     }
 }
@@ -27,7 +27,7 @@ string readkey(string s){
     ifstream keyfile(s.c_str()); 
 
 	if (!keyfile) {
-	    cerr << "Program can not open the key file.\n";
+	    cerr << "Program can not open the key file.";
 	    EXIT_FAILURE;
 	}
 		
